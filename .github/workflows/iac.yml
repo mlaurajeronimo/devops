@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [ hostname ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: hostname
-      run: hostname 
+      run: echo "${{github.head_ref ||github.ref_name}}" 
